@@ -1,0 +1,6 @@
+.profile-img {
+  @apply rounded-full border-green-600 border-4 shadow-md shadow-green-500;
+}
+.profile-img-missing {
+  @apply rounded-full border-red-600 border-4 shadow-md shadow-red-500;
+}

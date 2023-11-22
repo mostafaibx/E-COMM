@@ -1,0 +1,14 @@
+.input-container {
+  @apply flex flex-col lg:flex-row  md:p-4;
+}
+
+.input-valid {
+  @apply lg:w-2/4 mx-1 mb-2 py-4 px-6 rounded-full border-green-300 bg-gray-100 border-2;
+}
+.input-invalid {
+  @apply lg:w-2/4 mx-1 mb-2 py-2 md:py-4 px-4 md:px-6  rounded-full border-red-500 bg-gray-100 border-2;
+}
+
+.update-btn {
+  @apply lg:w-3/12 mx-1 mb-2 py-2 md:py-4 px-4 md:px-6 text-sm font-medium text-white bg-green-500 hover:bg-green-800 transition-all rounded-full;
+}

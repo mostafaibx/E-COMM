@@ -1,0 +1,6 @@
+.tab {
+  @apply cursor-pointer w-full text-center font-bold text-lg md:text-3xl md:p-6 px-1 py-3 hover:bg-slate-400 transition-all;
+}
+.selected-tab {
+  @apply cursor-pointer font-bold text-3xl p-6 bg-slate-400 transition-all;
+}

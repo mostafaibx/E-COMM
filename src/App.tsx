@@ -9,6 +9,7 @@ import ResultsPage from "./Pages/ResultsPage";
 import PrivateRoute from "./Pages/PrivateRoute";
 import LoginPage from "./Pages/LoginPage";
 import SignUpPage from "./Pages/SignUpPage";
+import UserPage from "./Pages/UserPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -40,6 +41,7 @@ function App() {
         { path: "/products/category/:catId", element: <ResultsPage /> },
         { path: "/products/:productId", element: <ProductPage /> },
         { path: "/Search/:searchText", element: <ResultsPage /> },
+        { path: "/profile", element: <UserPage /> },
       ],
     },
   ]);

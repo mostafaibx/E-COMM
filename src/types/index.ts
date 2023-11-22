@@ -44,4 +44,6 @@ export interface userDetails {
   email: string;
   displayName: string;
   photoURL: string;
+  phoneNumber: string;
+  emailVerified: boolean;
 }
