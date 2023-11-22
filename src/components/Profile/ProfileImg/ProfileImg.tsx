@@ -1,4 +1,4 @@
-import { useLoginState } from "../../util/Auth/loginState";
+import { useLoginState } from "../../../util/Auth/loginState";
 import "./ProfileImg.css";
 
 const defImg =

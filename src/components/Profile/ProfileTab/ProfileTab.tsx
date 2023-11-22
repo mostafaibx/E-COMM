@@ -1,4 +1,4 @@
-import { useLoginState } from "../../util/Auth/loginState";
+import { useLoginState } from "../../../util/Auth/loginState";
 import "./ProfileTab.css";
 
 const ProfileTab = () => {
