@@ -3,6 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Fragment } from "react";
 import { signout } from "../../util/Auth/signout";
 import { useLoginState } from "../../util/Auth/loginState";
+import { Link } from "react-router-dom";
 
 const UserDropDown = () => {
   const signoutHandler = () => {
@@ -29,11 +30,17 @@ const UserDropDown = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="absolute flex flex-col right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+        <Menu.Items className="absolute flex flex-col right-[-33%] mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
+          <Menu.Item
+            as="button"
+            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black p-4 text-lg font-medium hover:bg-gray-300 transation-all duration-150"
+          >
+            <Link to="/profile">Profile</Link>
+          </Menu.Item>
           <Menu.Item
             onClick={signoutHandler}
             as="button"
-            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black"
+            className="ui-active:bg-blue-500 ui-active:text-white ui-not-active:bg-white ui-not-active:text-black p-4 text-lg font-medium hover:bg-gray-300 transation-all duration-150"
           >
             Sign Out
           </Menu.Item>

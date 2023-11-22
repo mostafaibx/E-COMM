@@ -15,6 +15,7 @@ const Header = () => {
     navigate("/signup");
   };
   const { loggedInState } = useLoginState();
+  console.log(loggedInState.isLoggedIn);
 
   return (
     <div className="flex justify-between items-center p-4">

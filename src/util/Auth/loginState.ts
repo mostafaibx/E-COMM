@@ -6,9 +6,11 @@ import { userDetails } from "../../types";
 export const useLoginState = () => {
   const [loggedInState, setLoggedIn] = useState<{
     isLoggedIn: boolean;
+    isLoading: boolean;
     deleteUser: () => Promise<void>;
     userDetails: userDetails | null;
   }>({
+    isLoading: true,
     isLoggedIn: false,
     userDetails: null,
     deleteUser: async () => {},
@@ -18,6 +20,7 @@ export const useLoginState = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setLoggedIn({
+          isLoading: false,
           isLoggedIn: true,
           deleteUser: user.delete,
           userDetails: {
@@ -31,6 +34,7 @@ export const useLoginState = () => {
         });
       } else {
         setLoggedIn({
+          isLoading: false,
           isLoggedIn: false,
           deleteUser: async () => {},
           userDetails: null,
@@ -39,6 +43,7 @@ export const useLoginState = () => {
     });
     return () => unsubscribe();
   }, []);
+
   return {
     loggedInState,
   };

@@ -1,9 +1,10 @@
 import { Outlet, useLocation, Navigate } from "react-router";
 import { useLoginState } from "../util/Auth/loginState";
 
-function PrivateRoute() {
+function LoggedInPrivateRoute() {
   const location = useLocation();
   const { loggedInState } = useLoginState();
+  console.log(loggedInState.isLoggedIn);
 
   return !loggedInState.isLoggedIn ? (
     <Outlet />
@@ -12,4 +13,4 @@ function PrivateRoute() {
   );
 }
 
-export default PrivateRoute;
+export default LoggedInPrivateRoute;
