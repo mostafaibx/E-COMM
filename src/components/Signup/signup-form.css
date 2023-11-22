@@ -1,0 +1,14 @@
+.sign-input {
+  @apply p-2 text-xl rounded-lg ring-1 shadow-md;
+}
+
+.invalid-input {
+  @apply ring-red-500 p-2 text-xl rounded-lg ring-2 shadow-md focus:ring-0;
+}
+
+.label {
+  @apply text-lg mb-1 ml-1 font-medium;
+}
+.invalid-label {
+  @apply text-lg mb-1 ml-1 font-medium text-red-500;
+}

@@ -1,0 +1,89 @@
+import { useState } from "react";
+import Button from "../../UI/Button";
+import { signupWithEmail } from "../../util/Auth/signupWithEmail";
+
+type AuthError = {
+  authError: string,
+  for: string,
+};
+
+const SignupForm = () => {
+  function closeModalHandler() {
+    console.log("close");
+  }
+
+  const [validationError, setValidationError] =
+    useState <
+    AuthError >
+    {
+      authError: "",
+      for: "",
+    };
+  const signupHandler = (e: React.SyntheticEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const signupData = {
+      username: e.currentTarget.username.value,
+      email: e.currentTarget.email.value,
+      password: e.currentTarget.password.value,
+      confirmPassword: e.currentTarget.confirmPassword.value,
+    };
+    const authError = signupWithEmail(signupData);
+    setValidationError(authError);
+  };
+  return (
+    <form className="flex flex-col px-6 pb-6 " onSubmit={signupHandler}>
+      <label htmlFor="username">UserName</label>
+      <input
+        type="text"
+        placeholder="your name..."
+        id="username"
+        className="mb-4 p-2 text-xl rounded-lg ring-2 shadow-md"
+      />
+      {validationError.for === "username" && (
+        <p className="text-md text-red-700 font-bold font-serif m-8">
+          {validationError.authError}
+        </p>
+      )}
+      <label htmlFor="email">Email</label>
+      <input
+        type="text"
+        placeholder="example@mail.com"
+        id="email"
+        className="mb-4 p-2 text-xl rounded-lg ring-2 shadow-md"
+      />
+      {validationError.for === "email" && (
+        <p className="text-md text-red-700 font-bold font-serif m-8">
+          {validationError.authError}
+        </p>
+      )}
+      <label htmlFor="password">Password</label>
+      <input
+        type="password"
+        placeholder="password..."
+        id="password"
+        className="mb-4 p-2 text-xl rounded-lg ring-2 shadow-md"
+      />
+      {validationError.for === "password" && (
+        <p className="text-md m-0 p-0 text-red-700 font-bold font-serif">
+          {validationError.authError}
+        </p>
+      )}
+      <label htmlFor="confirmPassword">Confirm Password</label>
+      <input
+        type="password"
+        placeholder="password..."
+        id="confirmPassword"
+        className="mb-4 p-2 text-xl rounded-lg ring-2 shadow-md"
+      />
+      <div className="flex">
+        <button type="submit">Signup</button>
+        <Button color="primary">Signup</Button>
+        <Button color="secondary" onClick={closeModalHandler}>
+          Close
+        </Button>
+      </div>
+    </form>
+  );
+};
+
+export default SignupForm;

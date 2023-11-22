@@ -17,7 +17,7 @@ export const productsApiSlice = createApi({
       },
     }),
     getProductById: build.query({
-      query: (id: number) => {
+      query: (id: string) => {
         return {
           url: `products/${id}`,
         };

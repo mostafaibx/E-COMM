@@ -1,4 +1,4 @@
-import Header from "../Components/Header/Header";
+import Header from "../components/header/Header";
 
 const ErrorPage = () => {
   return (

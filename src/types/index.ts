@@ -20,3 +20,28 @@ export interface ProductData {
   skip: number;
   total: number;
 }
+
+export interface SignupData {
+  email: string;
+  password: string;
+  confirmPassword: string;
+  username: string;
+  address?: string;
+}
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export type AuthError = {
+  usernameError: string;
+  emailError: string;
+  passwordError: string;
+};
+
+export interface userDetails {
+  uid: string;
+  email: string;
+  displayName: string;
+  photoURL: string;
+}

@@ -2,10 +2,22 @@ import { HeartIcon, ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { textSlicer } from "../../util/functions";
 import Button from "../../UI/Button";
 import { Product } from "../../types";
+import { useNavigate } from "react-router";
 
-const ProductCard = ({ title, price, description, thumbnail }: Product) => {
+const ProductCard = ({ title, price, description, thumbnail, id }: Product) => {
+  const navigate = useNavigate();
+
+  const openProductHandler = (e: React.MouseEvent) => {
+    const id = e.currentTarget.id;
+    navigate(`/products/${id}`);
+  };
+
   return (
-    <div className="max-w-sm md:max-w-lg mx-auto md:mx-0 flex flex-col justify-between border-2 rounded-lg p-2">
+    <div
+      onClick={openProductHandler}
+      id={id.toString()}
+      className="max-w-sm md:max-w-lg mx-auto md:mx-0 flex flex-col justify-between border-2 rounded-lg p-2"
+    >
       <img src={thumbnail} alt={title} className="object-contain h-40" />
       <h1 className="font-bold text-xl">{title}</h1>
       <p>Price: ${price}</p>

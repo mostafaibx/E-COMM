@@ -2,6 +2,8 @@ import { useNavigate } from "react-router";
 import Button from "../../UI/Button";
 import DropDown from "../../UI/DropDown";
 import { Link } from "react-router-dom";
+import UserTab from "./UserTab";
+import { useLoginState } from "../../util/Auth/loginState";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ const Header = () => {
   const openSignup = () => {
     navigate("/signup");
   };
+  const { loggedInState } = useLoginState();
 
   return (
     <div className="flex justify-between items-center p-4">
@@ -23,14 +26,17 @@ const Header = () => {
         <DropDown />
         <DropDown />
       </div>
-      <div className="flex">
-        <Button color="primary" onClick={openLogin}>
-          Login
-        </Button>
-        <Button color="secondary" onClick={openSignup}>
-          Signup
-        </Button>
-      </div>
+      {!loggedInState.isLoggedIn && (
+        <div className="flex">
+          <Button color="primary" onClick={openLogin}>
+            Login
+          </Button>
+          <Button color="secondary" onClick={openSignup}>
+            Signup
+          </Button>
+        </div>
+      )}
+      {loggedInState.isLoggedIn && <UserTab />}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 interface ButtonProps {
   color: "primary" | "secondary" | "delete";
-  onClick: (e: React.SyntheticEvent) => void;
+  onClick?: (e: React.SyntheticEvent) => void;
   children: React.ReactNode;
 }
 
