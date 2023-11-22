@@ -11,6 +11,8 @@ import CartTab from "./components/Profile/CartTab/CartTab";
 import ProfileTab from "./components/Profile/ProfileTab/ProfileTab";
 import LoggedInPrivateRoute from "./Pages/LoggedInPrivateRoute";
 import LoggedoutPrivateRoute from "./Pages/LoggedoutPrivateRoute";
+import CheckOutPage from "./Pages/CheckOutPage";
+import WishlistTab from "./components/Profile/WishListTab/WishlistTab";
 
 function App() {
   const router = createBrowserRouter([
@@ -33,6 +35,7 @@ function App() {
               children: [
                 { path: "/profile", element: <ProfileTab /> },
                 { path: "/cart", element: <CartTab /> },
+                { path: "/wishlist", element: <WishlistTab /> },
               ],
             },
           ],
@@ -48,6 +51,7 @@ function App() {
         { path: "/products/category/:catId", element: <ResultsPage /> },
         { path: "/products/:productId", element: <ProductPage /> },
         { path: "/Search/:searchText", element: <ResultsPage /> },
+        { path: "/checkout", element: <CheckOutPage /> },
       ],
     },
   ]);

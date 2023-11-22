@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import CartItem from "../../Cart/CartItem";
 
 const CartTab = () => {
@@ -9,10 +10,10 @@ const CartTab = () => {
       </div>
       <div className="flex justify-center my-2">
         <button className="mx-1 text-md font-medium text-white bg-green-500 hover:bg-green-800 transition-all py-4 px-6 rounded-full">
-          Checkout
+          <Link to="/checkout">Checkout</Link>
         </button>
         <button className="mx-1text-md font-medium text-white bg-green-500 hover:bg-green-800 transition-all py-4 px-6 rounded-full">
-          Back Shopping
+          <Link to="/">Back Shopping</Link>
         </button>
       </div>
     </div>
